@@ -1,0 +1,55 @@
+.VerticalBox{
+  display: flex;
+}
+
+.VerticalNav.nav {
+  width: 200rpx;
+  height: 100vh;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav .tabcur{
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #F86442;
+}
+
+.VerticalMain{
+  height: 100vh;
+}
+
+.VerticalMain .label{
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.VerticalMain .label view:nth-child(1){
+  width: 100%;
+  text-align: center;
+  font-size: 38rpx;
+  margin-bottom: 10px;
+}
+.VerticalMain .label .item{
+  width: 33%;
+  font-size: 30rpx;
+  font-weight: 500;
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

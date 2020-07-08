@@ -1,0 +1,57 @@
+  <view class="bj" style="background-image:url('{{ islist == 1  ?  homecoverMiddle : coverMiddle}}');">
+  </view>
+
+  <view class="head">
+    <view class="head_top" style="height:{{customBar}}px;padding-top:{{statusBar}}px"><image bindtap="jumpback" style="width:35rpx;height:35rpx;" src="../../../image/left.png"></image></view>  
+    <view class="head_con">
+      <view class="head_box">
+        <view class="icon"><image src="{{islist == 1 ?  homecoverMiddle:coverMiddle}}"></image></view>
+        <view class="head_box_right">
+          <view class="title">{{ islist == 1 ? hometitle:title}} \n</view>
+          <view>{{islist == 1 ? homenickname:nickname}} >\n</view>
+          <view> <text>{{islist == 1 ? homealbumId:albumId}}</text> <text>人收藏</text> 
+          <text style="margin-right:5px;margin-left:5px">|</text> 
+          <text>已更新</text><text>{{islist == 1 ? hometracks:tracks}}期</text> </view>
+        </view>
+        <view class="head_bottom">
+          <view style="background-color: #FB785B;border: 1px solid #FB785B;"><image src="../../../image/jia.png"></image> 收藏</view>
+          <view><image src="../../../image/fx.png"></image> 分享</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="item {{tab == index ? 'active': ''}}" 
+    data-index="{{index}}" wx:for="{{tit}}" 
+    wx:key="key" bindtap="navbarTap">
+      {{item}}
+    </view>
+  </view>
+
+  <view hidden="{{tab !== 0}}" class="">
+  </view>
+
+  <view hidden="{{tab !== 1}}">
+    <view class="top">
+      <view class="top_left">
+      <image style="width: 30px;height: 30px;" src="../../../image/bofang.png"></image>
+      </view>
+      <view class="top_right">
+        <view> 正序</view>
+        <view>降序</view>
+      </view>
+    </view>
+    <view class="con" wx:for="{{10}}" wx:key="key">
+      <view class="con_left" style="font-size: 40rpx;">{{index}}</view>
+      <view class="con_con">
+        <view>《第一章》🗡来！天不生你李淳罡,剑道万古如长夜</view>
+        <view style="width:100%">
+          <text>91.6万</text> <text style="margin-left:10px;">09:52</text>
+        </view>
+      </view>
+      <view class="con_right">
+        1个月前
+      </view>
+    </view>
+  </view>

@@ -1,0 +1,30 @@
+
+image{width: 100%;height: 100%;}
+
+.bj{filter: blur(5px);background-size: cover;overflow: hidden;width: 100%;height: 500rpx;}
+/*  */
+.head{position: absolute;top: 0;left: 0;width: 100%;height: 500rpx;background:rgba(20, 2, 2, 0.5);z-index: 1;}
+.head .head_top{width: 100%;box-sizing: border-box;display: flex;align-items: center;padding-left: 20px;}
+.head .head_con{width: 100%;height: 100%;padding: 20px;box-sizing: border-box;}
+.head .head_con .head_box{width: 100%;height: 80%;display: flex;flex-wrap: wrap;}
+.head .head_con .head_box .icon{width: 30%;height: 60%;}
+.head .head_con .head_box_right{width: 65%;height: 60%;padding-left: 20px;box-sizing: border-box;}
+.head .head_con .head_box_right .title{font-size:35rpx;color:white;overflow:hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.head .head_con .head_box_right view{width: 100%;font-size: 28rpx;color: #D1D1D0;margin-top: 8px;}
+.head .head_con .head_bottom{width: 100%;height: 40%;display: flex;align-items: center;flex-direction: row-reverse;}
+.head .head_con .head_bottom view{width: 35%;height: 60%;border: 1px solid white;margin-left: 10px;margin-top: 10px; display: flex;justify-content: center;align-items: center;border-radius: 30rpx;color: white;}
+.head .head_con .head_bottom image{width: 30rpx;height: 30rpx;margin-right: 10rpx;}
+/* 选择 */
+.box{width: 100vw;background-color: white;height: 100rpx;display: flex;border-bottom: 1px solid #f4f4f4;position: relative;z-index: 2;}
+.box .item{width: 50%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 37rpx;}
+.box .item.active{font-weight: bold;color: black;}
+/* top 播放 */
+.top{width: 100%;height: 100rpx;display: flex;justify-content: space-between;align-items: center;border-bottom: 1px solid #f4f4f4;padding-left: 15px;box-sizing: border-box;}
+.top .top_right image{width: 55rpx;height: 55rpx;}
+.top .top_right{display: flex;align-items: center;justify-content: space-around;width: 40%;height: 100%;}
+.con{width: 100%;height: 200rpx;border: 1px solid #f4f4f4;display: flex;justify-content: space-between;align-items: center;}
+.con .con_con view:first-child{display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;font-size: 35rpx;margin-bottom: 35px;}
+.con .con_con view:last-child{font-size: 30rpx;color: #9B9B9B;}
+
+.con .con_left,.con .con_right{width: 30%;height: 100%;padding: 15px 0;box-sizing: border-box;color: #9B9B9B;font-size: 30rpx;text-align: center;}
+

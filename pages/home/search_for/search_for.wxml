@@ -1,0 +1,93 @@
+
+  <!-- 搜索结果页面 -->
+
+  <!-- 搜索框 -->
+  <view class="head" style="{{ istrue == 1? 'border-bottom: 1px solid #F5F5F5':''}}">
+    <view class="seabox_bar">
+      <icon type='search' size="32rpx"></icon>
+      <input type="text" focus="{{true}}" style="padding-left:32rpx" value="{{value}}" bindinput="look_for" bindblur="table" confirm-type="search" placeholder='搜索你想听的节目' />
+      <view class="cancel" bindtap="ss" style="display:{{none}};">搜索</view>
+    </view>
+  </view>
+<block wx:if="{{show}}">
+  <view class="body" style="{{ istrue == 1? 'display:none;':''}}">
+    <!-- 搜索历史 -->
+    <view class="search_history" style="display:{{hide}};">
+      <view class="history_head">搜索历史<image bindtap="delete" style="width:45rpx;height:45rpx;" src="../../../image/ljt.png"></image></view>
+      <view class="histort_con">
+        <view class="label" bindtap="label" data-con="{{item.con}}" wx:for="{{pastdb}}" wx:key="key">{{item.con}}</view>
+      </view>
+    </view>
+
+    <!-- 热门搜索 -->
+    <view class="search_history">
+      <view class="history_head">热门搜索</view>
+      <view class="top_con" wx:for="{{Leaderboard}}" wx:key="key" data-id="{{index}}">
+        <view style="font-size:37rpx"> 
+        <text class="{{index < 3 ? 'colos':''}}" style="margin-right:15px;">{{item.no}}</text> 
+          {{item.txt}} 
+        </view> 
+        <image src=" {{str*index<4 ? '../../../image/shang.png' : '../../../image/xia.png' }}"></image>
+      </view>
+      
+      
+    </view>
+  </view>
+</block>
+<block wx:else>
+    <view class="bodys">
+      <view class="box">
+        <view class="item {{tab == index? 'active':''}}" 
+        data-index="{{index}}" wx:for="{{tit}}" wx:key="key" bindtap="navbarTap">{{item}}</view>
+      </view>
+      <view class="article">
+        <text style="color:#9B9B9B">共 <text style="color:#F86642">{{no}}</text> 条搜索结果</text>
+        <view> <image src="../../../image/paixu.png"></image> 排序</view>
+      </view>
+
+      <!-- 专辑 -->
+      <view hidden="{{tab !== 0}}" class="tabone">
+        <scroll-view class="scrollone" scroll-y scroll-with-animation  enable-flex refresher-enabled>
+          <view class="content" wx:for="{{guess}}" wx:key="key">
+            <view style="background-image: url('{{guess[index].coverMiddle}}');"></view>
+            <view>
+              <text style="font-size: 38rpx;">{{guess[index].title}} \n</text>
+              <text style="color:#B5B5B5;">{{guess[index].nickname}} \n</text>
+              <text style="margin-right:10px;">{{guess[index].albumId}}</text> <text>{{guess[index].tracks}}集</text>
+            </view>
+            <view>
+                <image src="../../../image/bof.png"></image>
+            </view>
+          </view>
+        </scroll-view>  
+      </view>
+
+      <!-- 主播 -->
+      <view hidden="{{tab !== 1}}" class="tabtwo">
+        <scroll-view class="scrollone" scroll-y scroll-with-animation  enable-flex refresher-enabled>
+          <view class="content" wx:for="{{10}}" wx:key="key">
+            <view></view>
+            <view>
+              <text>实验{{index+1}}号 \n</text>
+              <text>工具人{{index+1}}  \n</text>
+              <text>8098</text> <text>3103</text>
+            </view>
+          </view>
+        </scroll-view> 
+      </view>
+
+      <!-- 声音 -->
+      <view hidden="{{tab !== 2}}" class="tabtwo">
+        <scroll-view class="scrollone" scroll-y scroll-with-animation  enable-flex refresher-enabled>
+          <view class="content" wx:for="{{10}}" wx:key="key">
+            <view style=" background-image: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3465492884,3650911969&fm=11&gp=0.jpg');"></view>
+            <view>
+              <text>实验{{index+1}}号 \n</text>
+              <text>工具人{{index+1}}  \n</text>
+              <text>8098</text> <text>3103</text>
+            </view>
+          </view>
+        </scroll-view> 
+      </view>
+    </view>
+</block>

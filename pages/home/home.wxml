@@ -1,0 +1,125 @@
+<!--pages/home/home.wxml-->
+
+<!-- 搜索框 -->
+
+<view class="seabox_bar">
+  <icon type='search' size="32rpx"></icon>
+  <input type="text" bindtap="Go_search" style="padding-left:32rpx" placeholder='搜索你想听的节目' />
+</view>
+
+
+<!-- 轮播图 -->
+
+<view class="Carousel">
+  <swiper class="swiper" circular="true" autoplay="true" interval="3000" easing-function="easeOutCubic" indicator-dots="true" indicator-color="#ccc" indicator-active-color="white">
+    <swiper-item  wx:for="{{CouImg}}" wx:key="key" >
+      <image src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 导航条 -->
+
+<view class="nav">
+  <block>
+    <view class="nav_container"  wx:for="{{NavImg}}" wx:key="key" wx:for-item="a">
+      <view class="nav_img"><image mode="widthFix" src="{{a.icon}}"></image></view>
+      <text>{{a.text}}</text>
+    </view>
+  </block>
+</view>
+
+<!-- 猜你喜欢 -->
+
+<view class="contentList">
+  <view class="like_top">
+    <view class="like_left">猜你喜欢</view>
+    <view class="ck">查看全部 ></view>
+  </view>
+  <view class="likeItemBox">
+    <view class="likeItem" bindtap="gotolike"  data-coverImg="{{item.coverMiddle}}" 
+    data-title="{{item.intro}}" data-id="{{index}}" 
+    wx:for="{{guess}}" wx:key="key">
+      <view class="likeimg">
+        <image class="likeItemIcon" src="{{item.coverMiddle}}" mode="widthFix"></image>
+        <view class="likecover"> 
+          <text>
+            {{quantity[index].albumId}}
+          </text> 
+        </view>
+      </view>
+      <view class="likeText">{{item.intro}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 节目栏目 -->
+
+<block wx:if="{{showitem}}">
+<view class="contentList" wx:for="{{length}}" wx:key="key" data-index="{{index}}">
+  <view class="like_top">
+    <view class="like_left">{{tit[index].title}}</view>
+    <view class="ck" bindtap="jumpChaKan">查看全部 ></view>
+  </view>
+
+  <view  class="content" data-id="0" data-index="{{index}}" bindtap="gotodetails">
+    <view class="conimg" style="background-image: url('{{tit[index].list[0].coverMiddle}}');">
+      <image src="../../image/bf.png"></image>
+    </view>
+    <view class="con_right">
+      <view>{{tit[index].list[0].title}}</view>
+      <view>{{tit[index].list[0].trackTitle}}</view>
+      <view style="margin-top: 25px;">
+        <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/erji.png"></image>
+        <text style="margin-right:15px;">{{tit[index].list[0].albumId}}</text>
+        <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/ji.png"></image>
+        <text>{{tit[index].list[0].tracks}}集</text>
+      </view>
+    </view>
+  </view> 
+
+  <view  class="content" data-id="1" data-index="{{index}}" bindtap="gotodetails">
+    <view class="conimg" style="background-image: url('{{tit[index].list[1].coverMiddle}}');">
+      <image src="../../image/bf.png"></image>
+    </view>
+    <view class="con_right">
+      <view>{{tit[index].list[1].title}}</view>
+      <view>{{tit[index].list[1].trackTitle}}</view>
+      <view style="margin-top: 25px;">
+        <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/erji.png"></image>
+        <text style="margin-right:15px;">{{tit[index].list[1].albumId}}</text>
+        <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/ji.png"></image>
+        <text>{{tit[index].list[1].tracks}}集</text>
+      </view>
+    </view>
+  </view> 
+
+  <view  class="content" data-id="2" data-index="{{index}}" bindtap="gotodetails">
+    <view class="conimg" style="background-image: url('{{tit[index].list[2].coverMiddle}}');">
+      <image src="../../image/bf.png"></image>
+    </view>
+    <view class="con_right">
+      <view>{{tit[index].list[2].title}}</view>
+      <view>{{tit[index].list[2].trackTitle}}</view>
+      <view style="margin-top: 25px;">
+       <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/erji.png"></image>
+        <text style="margin-right:15px;">{{tit[index].list[2].albumId}}</text>
+        <image style="width:25rpx;height:25rpx;margin-right:10rpx;" src="../../image/ji.png"></image>
+        <text>{{tit[index].list[2].tracks}}集</text>
+      </view>
+    </view>
+  
+  
+  
+  
+  </view> 
+
+</view> 
+</block>
+<block wx:else>
+  <view class="dataNotip">
+    <view class="tip">
+      加载中...
+    </view> 
+  </view>
+</block>

@@ -1,0 +1,20 @@
+
+<view class="VerticalBox">
+
+  <!-- 左导航条 -->
+  <scroll-view class="VerticalNav nav" scroll-top="{{VerticalNavTop}}" scroll-y scroll-with-animation>
+    <view class="cu-item {{index==TabCur?'tabcur':''}}" wx:for="{{list}}" wx:key="key" bindtap='tabSelect' data-id="{{index}}">
+      {{item}}
+    </view>
+  </scroll-view>
+  <!-- 内容 -->
+
+
+
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="label" wx:for="{{list}}" wx:key="key" id="main-{{index}}">
+      <view>{{item}}</view>
+      <view class="item" wx:for="{{6}}" wx:key="key">求佛</view>
+    </view>
+  </scroll-view> 
+</view>
